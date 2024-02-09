@@ -1,0 +1,12 @@
+<script src="{{asset('assets/views/js/jquery-3.3.1.min.js')}}"></script>
+<script src="{{asset('assets/views/js/popper.min.js')}}"></script>
+<script src="{{asset('assets/views/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('assets/views/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('assets/views/js/jquery.sticky.js')}}"></script>
+<script src="{{asset('assets/views/js/jquery.waypoints.min.js')}}"></script>
+<script src="{{asset('assets/views/js/jquery.animateNumber.min.js')}}"></script>
+<script src="{{asset('assets/views/js/jquery.fancybox.min.js')}}"></script>
+<script src="{{asset('assets/views/js/jquery.easing.1.3.js')}}"></script>
+<script src="{{asset('assets/views/js/bootstrap-datepicker.min.js')}}"></script>
+<script src="{{asset('assets/views/js/aos.js')}}"></script>
+<script src="{{asset('assets/views/js/main.js')}}"></script>
