@@ -9,7 +9,7 @@ use App\Traits\Common;
 
 
 class CarController extends Controller
-{
+{   
     use Common;
 
     /**
