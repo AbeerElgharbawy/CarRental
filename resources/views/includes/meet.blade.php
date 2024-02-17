@@ -10,7 +10,7 @@
               <h3 class="mb-4 section-heading"><strong>You can easily avail our promo for renting a car.</strong></h3>
               <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, explicabo iste a labore id est quas, doloremque veritatis! Provident odit pariatur dolorem quisquam, voluptatibus voluptates optio accusamus, vel quasi quidem!</p>
               
-              <p><a href="#" class="btn btn-primary">Meet them now</a></p>
+              <p><a href="{{route('about')}}" class="btn btn-primary">Meet them now</a></p>
             </div>
           </div>
         </div>
