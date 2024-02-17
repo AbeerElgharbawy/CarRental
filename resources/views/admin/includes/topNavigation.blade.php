@@ -17,71 +17,35 @@
 										<span>Settings</span>
 									</a>
 									<a class="dropdown-item" href="javascript:;">Help</a>
-									<a class="dropdown-item" href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+									<a class="dropdown-item" href="{{ route('login') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
 								</div>
 							</li>
 
 							<li role="presentation" class="nav-item dropdown open">
 								<a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
 									<i class="fa fa-envelope-o"></i>
-									<span class="badge bg-green">6</span>
+									<span class="badge bg-green">{{$unreadCount}}</span>
 								</a>
 								<ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-									<li class="nav-item">
-										<a class="dropdown-item">
-											<span class="image"><img src="{{asset('assets/admin/images/img.jpg')}}" alt="Profile Image" /></span>
-											<span>
-												<span>{{ Auth::user()->name }}</span>
-												<span class="time">3 mins ago</span>
-											</span>
-											<span class="message">
-												Film festivals used to be do-or-die moments for movie makers. They were where...
-											</span>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a class="dropdown-item">
-											<span class="image"><img src="{{asset('assets/admin/images/img.jpg')}}" alt="Profile Image" /></span>
-											<span>
-												<span>                                    
-													{{ Auth::user()->name }}
-												</span>
-												<span class="time">3 mins ago</span>
-											</span>
-											<span class="message">
-												Film festivals used to be do-or-die moments for movie makers. They were where...
-											</span>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a class="dropdown-item">
-											<span class="image"><img src="{{asset('assets/admin/images/img.jpg')}}" alt="Profile Image" /></span>
-											<span>
-												<span>{{ Auth::user()->name }}</span>
-												<span class="time">3 mins ago</span>
-											</span>
-											<span class="message">
-												Film festivals used to be do-or-die moments for movie makers. They were where...
-											</span>
-										</a>
-									</li>
+									@foreach($unreadMessage as $newMessage)
 									<li class="nav-item">
 										<a class="dropdown-item">
 											<span class="image"><img src="{{asset('assets/admin/images/img.jpg')}}"
 											 alt="Profile Image" /></span>
 											<span>
-												<span>{{ Auth::user()->name }}</span>
+												<!-- <span>{{ Auth::user()->name }}</span> -->
 												<span class="time">3 mins ago</span>
 											</span>
 											<span class="message">
-												Film festivals used to be do-or-die moments for movie makers. They were where...
+												{{$newMessage->message}}
 											</span>
 										</a>
 									</li>
+									@endforeach
 									<li class="nav-item">
 										<div class="text-center">
 											<a class="dropdown-item">
-												<strong>See All Alerts</strong>
+												<strong><a href="{{route('messages')}}">See All Alerts</a></strong>
 												<i class="fa fa-angle-right"></i>
 											</a>
 										</div>

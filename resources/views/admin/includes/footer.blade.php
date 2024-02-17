@@ -1,8 +1,8 @@
 
-			<!-- footer content -->
+		    <!-- footer content -->
 			<footer>
 				<div class="pull-right">
-					Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+					Made by Abeer Ahmed</a>
 				</div>
 				<div class="clearfix"></div>
 			</footer>

@@ -4,5 +4,5 @@
 Messages
 @endsection
 @section('pageContent')
-@include('admin.includes.showMessages')
+@include('admin.includes.showMessage')
 @endsection

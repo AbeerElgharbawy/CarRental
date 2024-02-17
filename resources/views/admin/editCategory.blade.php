@@ -3,5 +3,5 @@
 Edit Category
 @endsection
 @section('pageContent')
-@include('admin.includes.categories')
+@include('admin.includes.editCategory')
 @endsection

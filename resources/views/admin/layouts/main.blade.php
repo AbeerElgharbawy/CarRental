@@ -23,4 +23,5 @@
 		</div>
 	</div>
 	@include('admin.includes.jsLib')
+	@include('admin.includes.jq')
 </body></html>

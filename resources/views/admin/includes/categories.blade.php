@@ -54,19 +54,20 @@
 
 
                       <tbody>
+                        @foreach($categories as $category)
                         <tr>
-                          <td>Category</td>
-                          <td><img src="{{asset('assets/admin/images/edit.png')}}" alt="Edit"></td>
-                          <td><img src="{{asset('assets/admin/images/delete.png')}}" alt="Delete"></td>
+                          <td>{{$category->category}}</td>
+                          <td><a href="{{route('editCategory',['id' => $category->id])}}"><img src="{{asset('assets/admin/images/edit.png')}}" alt="Edit"></a></td>
+                          <td><a href="{{route('deleteCategory',['id' => $category->id])}}"><img src="{{asset('assets/admin/images/delete.png')}}" alt="Delete"></a></td>
                         </tr>
-                        <tr>
-                          <td>Category</td>
-                          <td><img src="{{asset('assets/admin/images/edit.png')}}" alt="Edit"></td>
-                          <td><img src="{{asset('assets/admin/images/delete.png')}}" alt="Delete"></td>
-                        </tr>
-                        
+                        @endforeach
                       </tbody>
                     </table>
+                    @if(session('error'))
+                          <div class="alert alert-danger">
+                              {{ session('error') }}
+                          </div>
+                      @endif
                   </div>
                   </div>
               </div>

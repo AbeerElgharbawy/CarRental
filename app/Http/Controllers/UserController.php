@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use function Laravel\Prompts\password;
 
@@ -42,12 +44,12 @@ class UserController extends Controller
         $data['password'] = Hash::make($data['password']);
         $data['active']=isset($request->active);
         User::create($data);
+        // $user->forceFill(['email_verified_at'=>now(),])->save();
         return redirect('admin/users')->with('success', 'User added successfully.');
 
         // return redirect('users');
     }
     
-
     /**
      * Display the specified resource.
      */
@@ -75,7 +77,6 @@ class UserController extends Controller
             'fullname'=>'required|string|max:50',
             'username'=>'required|string|max:50',
             'email'=>'required|string',
-
         ]);
         $data['active']=isset($request->active);
         if ($request->filled('password')) {

@@ -5,7 +5,6 @@
 						<div class="title_left">
 							<h3>Manage Testimonials</h3>
 						</div>
-
 						<div class="title_right">
 							<div class="col-md-5 col-sm-5  form-group pull-right top_search">
 								<div class="input-group">
@@ -42,34 +41,35 @@
 								</div>
 								<div class="x_content">
 									<br />
-									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{route('storeTestimonial')}}" method="post" enctype="multipart/form-data">
+										@csrf
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="name">Name <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="name" required="required" class="form-control ">
+												<input type="text" id="name" required="required" class="form-control " name='name'>
 											</div>
 										</div>
                                         <div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="name">Position <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="position" required="required" class="form-control ">
+												<input type="text" id="position" required="required" class="form-control " name="position">
 											</div>
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="content">Content <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<textarea id="content" name="content" required="required" class="form-control">Contents</textarea>
+												<textarea id="content" name="content" required="required" class="form-control" name="content">Contents</textarea>
 											</div>
 										</div>
 										
 										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align">Published</label>
+											<label class="col-form-label col-md-3 col-sm-3 label-align" >Published</label>
 											<div class="checkbox">
 												<label>
-													<input type="checkbox" class="flat">
+													<input type="checkbox" class="flat" name="published">
 												</label>
 											</div>
 										</div>

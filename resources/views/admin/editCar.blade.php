@@ -4,5 +4,5 @@
 Edit Car
 @endsection
 @section('pageContent')
-@include('admin.includes.categories')
+@include('admin.includes.editCar')
 @endsection

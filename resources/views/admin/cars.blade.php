@@ -5,3 +5,4 @@ Cars
 @section('pageContent')
 @include('admin.includes.cars')
 @endsection
+
