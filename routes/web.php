@@ -51,6 +51,7 @@ Auth::routes(['verify'=>true]);
  
 //admin routes
 Route::prefix('admin')->middleware('verified')->group(function () {
+
         //user routes
         Route::get('addUser', [App\Http\Controllers\AdminController::class, 'addUser'])->name('addUser');
         Route::post('storeUser', [App\Http\Controllers\UserController::class, 'store'])->name('storeUser');
