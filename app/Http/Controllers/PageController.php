@@ -88,7 +88,7 @@ class PageController extends Controller
     }
     
     public function listing(){
-        $cars=Car::paginate(3);
+        $cars=Car::paginate(6);
         $latestTest = Testimonial::latest()->take(3)->get();
         return view('listing',compact('cars','latestTest'));
     }
