@@ -46,6 +46,7 @@ Auth::routes();
 
 Auth::routes(['verify'=>true]);
 // Route::get('/home', [HomeController::class, 'index'])->middleware('verified')->name('home');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 
  
