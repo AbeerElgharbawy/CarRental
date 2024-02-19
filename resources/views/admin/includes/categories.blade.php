@@ -51,14 +51,12 @@
                           <th>Delete</th>
                         </tr>
                       </thead>
-
-
                       <tbody>
                         @foreach($categories as $category)
                         <tr>
                           <td>{{$category->category}}</td>
                           <td><a href="{{route('editCategory',['id' => $category->id])}}"><img src="{{asset('assets/admin/images/edit.png')}}" alt="Edit"></a></td>
-                          <td><a href="{{route('deleteCategory',['id' => $category->id])}}"><img src="{{asset('assets/admin/images/delete.png')}}" alt="Delete"></a></td>
+                          <td><a href="{{route('deleteCategory',['id' => $category->id])}}" onclick="return confirmDelete()"><img src="{{asset('assets/admin/images/delete.png')}}" alt="Delete"></a></td>
                         </tr>
                         @endforeach
                       </tbody>
@@ -77,3 +75,11 @@
             </div>
           </div>
         </div>
+        <script>
+            function confirmDelete() {
+                if (confirm("Are you sure you want to delete?")) {
+                    window.location.href = "{{ route('deleteCategory',['id' => $category->id]) }}";
+                }
+                return false; 
+            }
+        </script>

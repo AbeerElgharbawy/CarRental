@@ -49,38 +49,56 @@
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="title">Title <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="title" required="required" class="form-control " name="title" value="{{ old('car', $car->title) }}">
+												<input type="text" id="title" class="form-control " name="title" value="{{ old('car', $car->title) }}">
+												@error('title')
+												{{ $message }}
+												@enderror
 											</div>
 										</div>
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="content">Content <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<textarea id="content" name="description" required="required" class="form-control">{{ old('description', $car->description) }}"</textarea>
+												<textarea id="content" name="description" class="form-control">{{ old('description', $car->description) }}"</textarea>
+												@error('description')
+												{{ $message }}
+												@enderror
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="luggage" class="col-form-label col-md-3 col-sm-3 label-align">Luggage <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="luggage" class="form-control" type="number" name="luggage" required="required" value="{{ old('luggage', $car->luggage) }}">
+												<input id="luggage" class="form-control" type="number" name="luggage" value="{{ old('luggage', $car->luggage) }}">
+												@error('luggage')
+												{{ $message }}
+												@enderror
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="doors" class="col-form-label col-md-3 col-sm-3 label-align">Doors <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="doors" class="form-control" type="number" name="doors" required="required" value="{{ old('doors', $car->doors) }}">
+												<input id="doors" class="form-control" type="number" name="doors" value="{{ old('doors', $car->doors) }}">
+												@error('doors')
+												{{ $message }}
+												@enderror
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="passengers" class="col-form-label col-md-3 col-sm-3 label-align">Passengers <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="passengers" class="form-control" type="number" name="passengers" required="required" value="{{ old('passengers', $car->passengers) }}">
+												<input id="passengers" class="form-control" type="number" name="passengers" value="{{ old('passengers', $car->passengers) }}">
+												@error('passengers')
+												{{ $message }}
+												@enderror
 											</div>
 										</div>
 										<div class="item form-group">
 											<label for="price" class="col-form-label col-md-3 col-sm-3 label-align">Price <span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="price" class="form-control" type="number" name="price" required="required" value="{{ old('price', $car->price) }}">
+												<input id="price" class="form-control" type="number" name="price"  value="{{ old('price', $car->price) }}">
+												@error('price')
+												{{ $message }}
+												@enderror
 											</div>
 										</div>
 										<div class="item form-group">
@@ -97,6 +115,9 @@
 											<div class="col-md-6 col-sm-6 ">
 												<input type="file" id="image" name="image" class="form-control">
 												<img src="{{asset('assets/images/'. $car->image)}}" alt="{{$car->image}}" style="width: 300px;">
+												@error('image')
+												{{ $message }}
+												@enderror
 											</div>
 										</div>
 										<div class="item form-group">
@@ -108,6 +129,9 @@
 													<option value="{{ $category->id }}" {{ $category->id == $car->category_id ? 'selected':'' }} > {{$category->category}}</option>
 													@endforeach
 												</select>
+												@error('category_id')
+												{{ $message }}
+												@enderror
 											</div>
 										</div>
 										<div class="ln_solid"></div>
@@ -117,15 +141,6 @@
 												<button type="submit" class="btn btn-success">Update</button>
 											</div>
 										</div>
-											@if ($errors->any())
-												<div class="alert alert-danger">
-													<ul>
-														@foreach ($errors->all() as $error)
-															<li>{{ $error }}</li>
-														@endforeach
-													</ul>
-												</div>
-											@endif
 									</form>
 								</div>
 							</div>

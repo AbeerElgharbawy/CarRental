@@ -66,9 +66,10 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $messages=$this->messages();
         $data=$request->validate([
             'category'=>'required|string|max:100',
-        ]);
+        ], $messages);
         Category::where('id',$id)->update($data);
         return redirect('admin/categories');
     }
@@ -90,6 +91,13 @@ class CategoryController extends Controller
 
     // return redirect('admin/categories')->back()->with('success', 'Category deleted successfully.');
 
+    }
+    public function messages(){
+        return[
+        'categiry.required'=>'please enter category name',
+        'categiry.string'=>'please enter string value',
+        'categiry.max'=>'sorry, maximum number of characters=100',
+        ];
     }
     
 }

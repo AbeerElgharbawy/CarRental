@@ -63,7 +63,7 @@
                           <td>{{$car->price}}</td>
                           <td>{{$car->published ? 'Yes' : 'No'}}</td>
                           <td><a href="{{route('editCar',['id' => $car->id])}}" ><img src="{{asset('assets/admin/images/edit.png')}}" alt="Edit"></a></td>
-                          <td><a href="{{route('deleteCar',['id' => $car->id])}}"><img src="{{asset('assets/admin/images/delete.png')}}" alt="Delete"></a></td>
+                          <td><a href="{{route('deleteCar',['id' => $car->id])}}" onclick="return confirmDelete()"><img src="{{asset('assets/admin/images/delete.png')}}" alt="Delete"></a></td>
                         </tr>
                        @endforeach
                       </tbody>
@@ -80,4 +80,12 @@
 
         <!-- /page content -->
 
-        
+        <script>
+            function confirmDelete() {
+                if (confirm("Are you sure you want to delete?")) {
+                    window.location.href = "{{ route('deleteCar',['id' => $car->id]) }}";
+                }
+                return false; 
+            }
+        </script>
+                

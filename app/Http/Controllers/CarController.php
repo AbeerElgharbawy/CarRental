@@ -36,16 +36,17 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
+        $messages=$this->messages();
         $data = $request->validate([
             'title' => 'required|max:50',
-            'description' => 'required|max:200',
+            'description' => 'required|string|max:200',
             'luggage' => 'required',
             'doors' => 'required',
             'price' => 'required',
             'passengers' => 'required',
             'category_id' => 'required',
             'image' => 'required|mimes:png,jpg,jpeg|max:2048',
-            ]);
+            ],$messages);
             $fileName = $this->uploadFile($request->image, 'assets/images');
             $data['image']= $fileName;
             $data['published']=isset($request->published);
@@ -76,16 +77,17 @@ class CarController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $messages=$this->messages();
         $data = $request->validate([
         'title' => 'required|max:50',
-        'description' => 'required|max:200',
+        'description' => 'required|string|max:200',
         'luggage' => 'required',
         'doors' => 'required',
         'price' => 'required',
         'passengers' => 'required',
         'category_id' => 'required',
         'image' => 'mimes:png,jpg,jpeg|max:2048',
-        ]);
+        ], $messages);
         if(isset($request->image)){
             $file=$request->image;
             $fileName=$this->uploadFile($file,'assets/images');
@@ -105,5 +107,19 @@ class CarController extends Controller
     {
         Car::where('id',$id)->delete();
         return redirect('admin/cars');
+    }
+    public function messages(){
+        return[
+            'title.required'=>'please enter the car title',
+            'title.max'=>'sorry, maximum number of characters=50',
+            'description.required'=>'please enter the car description',
+            'description.string'=>'please enter string value',
+            'description.max'=>'sorry, maximum number of characters=200',
+            'luggage.required'=>'please enter the number of car luggage',
+            'doors.required'=>'please enter the number of car doors',
+            'passengers.required'=>'please enter the number of passengers',
+            'price.required'=>'please enter the price',
+            'category_id.required'=>'please select category',
+        ];
     }
 }
