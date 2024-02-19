@@ -44,7 +44,6 @@ class UserController extends Controller
         $data['password'] = Hash::make($data['password']);
         $data['active']=isset($request->active);
         User::create($data);
-        // $user->forceFill(['email_verified_at'=>now(),])->save();
         return redirect('admin/users')->with('success', 'User added successfully.');
 
         // return redirect('users');
