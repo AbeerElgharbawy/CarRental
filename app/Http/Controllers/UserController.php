@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Auth\MustVerifyEmail;
+use Illuminate\Support\Carbon;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use function Laravel\Prompts\password;
@@ -43,6 +44,9 @@ class UserController extends Controller
             ]);
         $data['password'] = Hash::make($data['password']);
         $data['active']=isset($request->active);
+        $user = new User();
+        $user->email_verified_at = Carbon::now();
+
         User::create($data);
         // $user->forceFill(['email_verified_at'=>now(),])->save();
         return redirect('admin/users')->with('success', 'User added successfully.');
